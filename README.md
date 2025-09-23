@@ -38,12 +38,11 @@ Make sure you have installed:
 ### Installation
 
 1. Clone the repository  
-
-   ```bash
+```bash
    git clone https://github.com/Gnaneswar1183/Evently.git
    cd Evently
+   
 2.Install backend dependencies
-
 cd Backend
 npm install
 
