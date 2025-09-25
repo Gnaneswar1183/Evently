@@ -1,14 +1,19 @@
-// src/api.js
 import axios from 'axios';
 
+// This logic automatically determines the correct backend URL
+const isProduction = process.env.NODE_ENV === 'production';
+const baseURL = isProduction 
+  ? 'https://evently-backend.onrender.com/api' // <-- Your live backend URL
+  : 'http://localhost:5000/api';                 // <-- Your local backend URL
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: baseURL, // Use the URL determined above
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Add a request interceptor to include the token in headers
+// This part adds the auth token to every request automatically
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
