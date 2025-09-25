@@ -3,7 +3,7 @@ import axios from 'axios';
 // This logic automatically determines the correct backend URL
 const isProduction = process.env.NODE_ENV === 'production';
 const baseURL = isProduction 
-  ? 'https://evently-backend-qfye.onrender.com' // <-- Your live backend URL
+  ? 'https://evently-backend-qfye.onrender.com/api' // <-- Your live backend URL
   : 'http://localhost:5000/api';                 // <-- Your local backend URL
 
 const api = axios.create({
