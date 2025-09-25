@@ -13,7 +13,12 @@ connectDB();
 const app = express();
 
 // Init Middleware
-app.use(cors()); // Enable CORS
+//app.use(cors()); // Enable CORS
+app.use(cors({
+  origin: ["https://evently-beryl-mu.vercel.app"], // your Vercel frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json()); // Allow us to accept JSON data in the body
 
 // Define Routes
